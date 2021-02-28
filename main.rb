@@ -1,11 +1,12 @@
 require_relative 'lib/product'
 require_relative 'lib/book'
 require_relative 'lib/movie'
+require_relative 'lib/product_collection'
 
-movie1 = Movie.from_file('./data/movies/01.txt')
-movie2 = Movie.from_file('./data/movies/02.txt')
-book1 = Book.from_file('./data/books/01.txt')
+collection = ProductCollection.from_dir(File.dirname(__FILE__ ) + '/data')
 
-puts movie1
-puts movie2
-puts book1
+collection.sort!(by: :price, order: :asc)
+
+collection.to_a.each do |product|
+  puts product
+end
