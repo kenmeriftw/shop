@@ -2,13 +2,10 @@ require_relative 'lib/product'
 require_relative 'lib/book'
 require_relative 'lib/movie'
 
-leon = Movie.new(title: 'Леон', year: 1995, director: 'Люк Бессон', price: 120000, amount: 3)
-leon.year = 1994
-leon.update(amount: 5)
+movie1 = Movie.from_file('./data/movies/01.txt')
+movie2 = Movie.from_file('./data/movies/02.txt')
+book1 = Book.from_file('./data/books/01.txt')
 
-idiot = Book.new(title: 'Идиот', genre: 'роман', amount: 10)
-idiot.author = 'Федька Достоевский'
-idiot.update(author: 'Фёдор Достоевский', price: 1500)
-
-puts leon
-puts idiot
+puts movie1
+puts movie2
+puts book1

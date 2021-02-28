@@ -10,7 +10,7 @@ class Book < Product
   end
 
   def to_s
-    "Книга #{@title}, #{@genre}, автор - #{@author}, #{super}"
+    "#{@title} is a #{@genre} by #{@author}. #{super}"
   end
 
   def update(params)
@@ -19,5 +19,15 @@ class Book < Product
     @title = params[:title] if params[:title]
     @genre = params[:genre] if params[:genre]
     @author = params[:author] if params[:author]
+  end
+
+  def self.from_file(file_path)
+    Dir["#{file_path}"].
+      map do |file_name|
+      books_data = File.readlines(file_name, chomp: true).to_a
+      Book.new(title: books_data[0], genre: books_data[1],
+                author: books_data[2], price: books_data[3],
+                amount: books_data[4])
+    end
   end
 end

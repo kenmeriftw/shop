@@ -10,7 +10,7 @@ class Movie < Product
   end
 
   def to_s
-    "Фильм #{@title}, #{@year}, режиссер #{@director}, #{super}"
+    "#{@title} is a #{@year} film directed by #{@director}. #{super}"
   end
 
   def update(params)
@@ -19,5 +19,15 @@ class Movie < Product
     @title = params[:title] if params[:title]
     @director = params[:director] if params[:director]
     @year = params[:year] if params[:year]
+  end
+
+  def self.from_file(file_path)
+    Dir["#{file_path}"].
+      map do |file_name|
+      movies_data = File.readlines(file_name, chomp: true).to_a
+      Movie.new(title: movies_data[0], director: movies_data[1],
+                year: movies_data[2], price: movies_data[3],
+                amount: movies_data[4])
+    end
   end
 end
