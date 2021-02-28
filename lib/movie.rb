@@ -22,12 +22,14 @@ class Movie < Product
   end
 
   def self.from_file(file_path)
-    Dir["#{file_path}"].
-      map do |file_name|
-      movies_data = File.readlines(file_name, chomp: true).to_a
-      Movie.new(title: movies_data[0], director: movies_data[1],
-                year: movies_data[2], price: movies_data[3],
-                amount: movies_data[4])
-    end
+    movies_data = File.readlines(file_path).map { |line| line.chomp }
+
+    self.new(
+      title: movies_data[0],
+      genre: movies_data[1],
+      author: movies_data[2],
+      price: movies_data[3],
+      amount: movies_data[4]
+    )
   end
 end
