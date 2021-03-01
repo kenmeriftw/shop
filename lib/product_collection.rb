@@ -1,7 +1,8 @@
 class ProductCollection
   PRODUCT_TYPES = {
     movie: {dir: 'movies', class: Movie},
-    book: {dir: 'books', class: Book}
+    book: {dir: 'books', class: Book},
+    cd: {dir: 'cds', class: CD}
   }
 
   def initialize(products = [])
@@ -25,6 +26,10 @@ class ProductCollection
 
   def to_a
     @products
+  end
+
+  def amount(product)
+    product.amount.to_i
   end
 
   def sort!(params)

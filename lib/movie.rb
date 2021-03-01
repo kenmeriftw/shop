@@ -10,7 +10,7 @@ class Movie < Product
   end
 
   def to_s
-    "#{@title} is a #{@year} film directed by #{@director}. #{super}"
+    "#{@title}, #{@year}, director #{@director}. #{super}"
   end
 
   def update(params)
@@ -26,8 +26,8 @@ class Movie < Product
 
     self.new(
       title: movies_data[0],
-      genre: movies_data[1],
-      author: movies_data[2],
+      director: movies_data[1],
+      year: movies_data[2],
       price: movies_data[3],
       amount: movies_data[4]
     )

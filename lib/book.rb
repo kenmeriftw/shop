@@ -10,7 +10,7 @@ class Book < Product
   end
 
   def to_s
-    "#{@title} is a #{@genre} by #{@author}. #{super}"
+    "#{@title}, author: #{@author}, #{@genre}. #{super}"
   end
 
   def update(params)
