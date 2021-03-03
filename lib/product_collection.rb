@@ -24,12 +24,8 @@ class ProductCollection
     self.new(products)
   end
 
-  def to_a
-    @products
-  end
-
-  def amount(product)
-    product.amount.to_i
+  def product_by_index(index)
+    @products[index - 1]
   end
 
   def sort!(params)
@@ -45,5 +41,14 @@ class ProductCollection
     @products.reverse! if params[:order] == :asc
 
     self
+  end
+
+  def to_s
+    @products.map.with_index(1) { |product, i| "#{i}. #{product}" }.
+      join("\n")
+  end
+
+  def in_stock!(product)
+    @products.delete(product) if product.amount == 0
   end
 end

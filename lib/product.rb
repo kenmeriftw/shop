@@ -20,6 +20,6 @@ class Product
   end
 
   def in_stock?
-    @amount > 0
+    @amount.positive?
   end
 end
