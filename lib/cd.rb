@@ -1,5 +1,6 @@
 class CD < Product
   attr_accessor :album, :artist, :genre, :year
+
   def initialize(params)
     super
 

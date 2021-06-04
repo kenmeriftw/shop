@@ -16,7 +16,7 @@ class Product
   end
 
   def self.from_file(file_path)
-    raise NotImplementedError, "is not implemented yet"
+    raise NotImplementedError, 'is not implemented yet'
   end
 
   def in_stock?

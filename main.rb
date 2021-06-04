@@ -5,12 +5,12 @@ require_relative 'lib/cd'
 require_relative 'lib/cart'
 require_relative 'lib/product_collection'
 
-collection = ProductCollection.from_dir(File.dirname(__FILE__) + '/data')
+collection = ProductCollection.from_dir("#{File.dirname(__FILE__)}/data")
 
 cart = Cart.new
 
 loop do
-  puts "What would you like to buy?"
+  puts 'What would you like to buy?'
   puts collection
   puts '0. Press \'0\' to order'
   puts
