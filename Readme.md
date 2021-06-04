@@ -1,28 +1,43 @@
-# colorized_hangman
-The famous Hangman game on Ruby. Try it, buddy!
+# hobby_shop
+There is a tiny shop written in Ruby language.
+As for now, you can buy some books, CD's and DVD-movies. 
 
-To start playing, you have to have
-[ruby-3.0.0](https://github.com/ruby/ruby "The Ruby Programming Language [mirror]") and
-[bundler-2.2.14](https://github.com/rubygems/bundler "Manage your Ruby application's gem dependencies]") installed on your machine. 
+You have to have `ruby` installed on your local machine.
+To run the application on your local machine, please, clone this repo, make `cd` to directory and run `ruby main.rb`. You will see the product collection where you can choose any element from the list by entering it's number.
 
-You can clone this repo onto your local machine, make `cd` in the directory and run 
+Here it is:
+
+![alt text](https://media.giphy.com/media/St57MYmOp5jqPgwriT/giphy.gif)
+
+To add new items to stock just create new `txt` file in `data/%classname%` directory of application.
+File should have special structure:
+
+**books**:
 ```
-bundle
-``` 
-to install required gems. 
-
-Then, run
-
-```
-bundle exec ruby hangman.rb
+title
+genre
+author
+price
+copies in stock
 ```
 
-You have to guess the hidden word during 7 attempts. 
-Enter the letter you want to try and you will get a result on the screen. 
-If the letter was 'correct' (the hidden word include this letter) it will display on the screen in the 'word' string.
+**cds**:
+```
+title
+artist
+genre
+year
+price
+copies in stock
+```
 
-![alt text](https://media.giphy.com/media/ZA1SNxndWjZIpXXwmR/giphy.gif)
+**movies**:
+```
+title
+director
+year
+price
+copies
+```
 
-To add a new hidden words in game you have to open /data/words.txt file and enter a new words in capital letters, every word should be entered in new line.
-
-Enjoy it!
+Hope you will enjoy it!
